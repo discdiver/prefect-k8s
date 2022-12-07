@@ -1,0 +1,62 @@
+###
+### A complete description of a Prefect Deployment for flow 'check'
+###
+name: k8s-baked
+description: null
+version: 46ea9105de9bdd6b5f366e566449cead
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+tags: []
+parameters: {}
+schedule: null
+infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: check
+manifest_path: null
+infrastructure:
+  type: kubernetes-job
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  image: discdiver/prefect:py3.10-baked
+  namespace: default
+  service_account_name: null
+  image_pull_policy: Always
+  cluster_config: null
+  job:
+    kind: Job
+    spec:
+      template:
+        spec:
+          containers:
+          - env: []
+            name: prefect-job
+          completions: 1
+          parallelism: 1
+          restartPolicy: Never
+    metadata:
+      labels: {}
+    apiVersion: batch/v1
+  customizations: []
+  job_watch_timeout_seconds: 5
+  pod_watch_timeout_seconds: 60
+  stream_output: true
+  finished_job_ttl: null
+  _block_document_id: 8de67aa7-70fa-477c-a255-f4df0daf8166
+  _block_document_name: k8s-flow
+  _is_anonymous: false
+  block_type_slug: kubernetes-job
+  _block_type_slug: kubernetes-job
+storage: null
+path: /opt/prefect/flows
+entrypoint: flows.py:check
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties: {}
+  required: null
+  definitions: null
