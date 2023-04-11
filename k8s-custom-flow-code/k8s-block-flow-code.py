@@ -6,7 +6,3 @@ k8s_job = KubernetesJob(
 )
 
 k8s_job.save("k8s-flow", overwrite=True)
-
-
-def somestuff():
-    print(cool)
